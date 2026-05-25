@@ -19,20 +19,13 @@ permissions:
 
 jobs:
   build-web:
-    if: needs.detect-changes.outputs.node == 'true'
     strategy:
       matrix:
         include:
           - name: host-app
-            workspace: host-app
-            app-path: ../
-            port: '3000'
 
     uses: ./.github/workflows/node-build.yml
     with:
       name: ${{ matrix.name }}
-      workspace: ${{ matrix.workspace }}
-      app-path: ${{ matrix['app-path'] }}
-      port: ${{ matrix.port }}
 
  

@@ -23,10 +23,10 @@ jobs:
     strategy:
       matrix:
         include:
-          - name: web-main
-            workspace: main
-            app-path: apps/web/main
-            port: '3001'
+          - name: host-app
+            workspace: host-app
+            app-path: ../
+            port: '3000'
 
     uses: ./.github/workflows/node-build.yml
     with:

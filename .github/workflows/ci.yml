@@ -18,11 +18,7 @@ permissions:
   pull-requests: read
 
 jobs:
-  detect-changes:
-    uses: ./.github/workflows/detect-changes.yml
-
   build-web:
-    needs: detect-changes
     if: needs.detect-changes.outputs.node == 'true'
     strategy:
       matrix:

@@ -1,0 +1,42 @@
+name: Orchestration Build and Test
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - 'feature/**'
+      - 'module/**'
+  pull_request:
+    branches:
+      - main
+      - develop
+      - 'feature/**'
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  detect-changes:
+    uses: ./.github/workflows/detect-changes.yml
+
+  build-web:
+    needs: detect-changes
+    if: needs.detect-changes.outputs.node == 'true'
+    strategy:
+      matrix:
+        include:
+          - name: web-main
+            workspace: main
+            app-path: apps/web/main
+            port: '3001'
+
+    uses: ./.github/workflows/node-build.yml
+    with:
+      name: ${{ matrix.name }}
+      workspace: ${{ matrix.workspace }}
+      app-path: ${{ matrix['app-path'] }}
+      port: ${{ matrix.port }}
+
+ 

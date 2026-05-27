@@ -22,7 +22,6 @@ export default function SignInForm() {
     e.preventDefault();
     setLoading(true);
     setError("");
-    console.log("Submitting:", { username, password });
 
     try {
       await api.post("/api/auth/login?tokenType=sso", {

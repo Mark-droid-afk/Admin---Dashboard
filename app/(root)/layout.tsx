@@ -49,12 +49,13 @@ const navItems: NavItem[] = [
     name: "HR Management",
     icon: <UserIcon />,
     app: "hr-management",
+    baseUrl: process.env.NEXT_PUBLIC_HRMS_URL,
     subItems: [
-      { name: "Recruitment & Hiring", path: "/recruitment-hiring", app: "recruitment-hiring" },
-      { name: "Digital 201 Files", path: "/digital-201-file", app: "digital-201-file" },
-      { name: "Attendance & Biometrics", path: "/attendance-biometrics", app: "attendance-biometrics" },
-      { name: "Payroll & Deductions", path: "/payroll-deduction", app: "payroll-deduction" },
-      { name: "User Roles", path: "/user-roles", app: "user-roles" },
+      { name: "Recruitment & Hiring", path: "/recruitment-hiring", app: "recruitment-hiring", baseUrl: process.env.NEXT_PUBLIC_HRMS_URL },
+      { name: "Digital 201 Files", path: "/digital-201-file", app: "digital-201-file", baseUrl: process.env.NEXT_PUBLIC_HRMS_URL },
+      { name: "Attendance & Biometrics", path: "/attendance-biometrics", app: "attendance-biometrics", baseUrl: process.env.NEXT_PUBLIC_HRMS_URL },
+      { name: "Payroll & Deductions", path: "/payroll-deduction", app: "payroll-deduction", baseUrl: process.env.NEXT_PUBLIC_HRMS_URL },
+      { name: "User Roles", path: "/user-roles", app: "user-roles", baseUrl: process.env.NEXT_PUBLIC_HRMS_URL },
     ],
   },
 ];
@@ -64,10 +65,11 @@ const othersItems: NavItem[] = [
     icon: <Settings2 />,
     name: "Settings",
     app: "settings",
+    baseUrl: process.env.NEXT_PUBLIC_HOST_APP_URL,
     subItems: [
-      { name: "User Management", path: "/users", app: "user-management" },
-      { name: "IAM & Access Control", path: "/access-control", app: "iam" },
-      { name: "Product Configuration", path: "/product-config", app: "product-config" },
+      { name: "User Management", path: "/users", app: "user-management", baseUrl: process.env.NEXT_PUBLIC_HOST_APP_URL },
+      { name: "IAM & Access Control", path: "/access-control", app: "iam", baseUrl: process.env.NEXT_PUBLIC_HOST_APP_URL },
+      { name: "Product Configuration", path: "/product-config", app: "product-config", baseUrl: process.env.NEXT_PUBLIC_HOST_APP_URL },
     ],
   },
 ];

@@ -77,7 +77,7 @@ const othersItems: NavItem[] = [
 function RootLayoutInner({ children }: { children: React.ReactNode }) {
   const { user, isLoading, logout } = useAuth();
   const router = useRouter();
-
+  console.log(user)
   useEffect(() => {
     if (!isLoading && !user) {
       router.replace("/signin");

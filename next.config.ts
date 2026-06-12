@@ -1,7 +1,18 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async rewrites() {
+    return [
+      {
+        source: "/api/erp-auth/:path*",
+        destination: "http://localhost:5007/api/erp-auth/:path*",
+      },
+      {
+        source: "/api/customer-auth/:path*",
+        destination: "http://localhost:5007/api/customer-auth/:path*",
+      },
+    ];
+  },
   turbopack: {
     rules: {
       "*.svg": {
@@ -16,7 +27,6 @@ const nextConfig: NextConfig = {
       issuer: /\.[jt]sx?$/,
       use: ["@svgr/webpack"],
     });
-
     return config;
   },
 };

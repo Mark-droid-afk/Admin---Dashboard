@@ -41,8 +41,9 @@ const navItems: NavItem[] = [
     baseUrl: process.env.NEXT_PUBLIC_CRMS_URL,
     subItems: [
       { name: "Customer Profiles", path: "/customers", app: "customers", baseUrl: process.env.NEXT_PUBLIC_CRMS_URL },
-      { name: "Marketing & Promotions", path: "/marketing", app: "marketing", baseUrl: process.env.NEXT_PUBLIC_CRMS_URL },
-      { name: "Support & Services", path: "/support", app: "support", baseUrl: process.env.NEXT_PUBLIC_CRMS_URL },
+      { name: "Conversations", path: "/conversation", app: "support", baseUrl: process.env.NEXT_PUBLIC_CRMS_URL },
+      { name: "Campaigns", path: "/campaigns", app: "campaigns", baseUrl: process.env.NEXT_PUBLIC_CRMS_URL },
+      { name: "Tickets", path: "/tickets", app: "tickets", baseUrl: process.env.NEXT_PUBLIC_CRMS_URL },
     ],
   },
   {
@@ -65,11 +66,11 @@ const othersItems: NavItem[] = [
     icon: <Settings2 />,
     name: "Settings",
     app: "settings",
-    baseUrl: process.env.NEXT_PUBLIC_HOST_APP_URL,
+    baseUrl: process.env.NEXT_PUBLIC_HOST_URL,
     subItems: [
-      { name: "User Management", path: "/users", app: "user-management", baseUrl: process.env.NEXT_PUBLIC_HOST_APP_URL },
-      { name: "IAM & Access Control", path: "/access-control", app: "iam", baseUrl: process.env.NEXT_PUBLIC_HOST_APP_URL },
-      { name: "Product Configuration", path: "/product-config", app: "product-config", baseUrl: process.env.NEXT_PUBLIC_HOST_APP_URL },
+      { name: "User Management", path: "/users", app: "user-management", baseUrl: process.env.NEXT_PUBLIC_HOST_URL },
+      { name: "IAM & Access Control", path: "/access-control", app: "iam", baseUrl: process.env.NEXT_PUBLIC_HOST_URL },
+      { name: "Product Configuration", path: "/product-config", app: "product-config", baseUrl: process.env.NEXT_PUBLIC_HOST_URL },
     ],
   },
 ];

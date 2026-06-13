@@ -9,7 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@r3b2p/uilib": "^2.3.7",
+    "@r3b2p/uilib": "^2.3.8",
     "axios": "^1.16.1",
     "lucide-react": "^1.16.0",
     "next": "16.2.4",
@@ -20,7 +20,7 @@
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
     "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
+    "@types/node": "^20.19.43",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "autoprefixer": "^10.5.0",

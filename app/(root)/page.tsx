@@ -1,26 +1,20 @@
-"use client";
+import StatCardsGrid from "@/components/dashboard/cards/StatCardsGrid";
+import TotalVisitorsCard from "@/components/dashboard/chart/ProductionAreaChart";
+import ProductionOverviewCard from "@/components/dashboard/chart/ProductionOverviewCard";
+import OutlineTableCard from "@/components/dashboard/table/RecentOrdersCard";
 
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
-import { useAuth } from "@/context/AuthContext";
-
-const Page = () => {
-  const { user, isLoading } = useAuth();
-  const router = useRouter();
-
-  useEffect(() => {
-    if (!isLoading && !user) {
-      router.replace("/signin");
-    }
-  }, [user, isLoading]);
+export default function DashboardPage() {
   return (
-    <div className="dark:text-gray-400">
-      <h1>Admin Dashboard</h1>
-      <p>Welcome to the asfas sfdsf admin sdfasd asddashboard. Here you can manage your application.</p>
-      <p>gawin niyong l safsadf ocalhost:3000/login yung url para macheck yung login form</p>
-      <p className="mt-10">**sign in lang nandito sa employee diba?**</p>
-    </div>
+          <main className="space-y-6 p-6">
+            <header>
+              <h1 className="text-xl font-semibold text-black dark:text-white">Admin Dashboard</h1>
+              <p className="text-base text-neutral-500 dark:text-neutral-400">
+                Monitor production performance, inventory levels, and order fulfillment in real time.
+              </p>
+            </header>
+            <StatCardsGrid />
+            <ProductionOverviewCard />
+            <OutlineTableCard />
+          </main>
   );
 }
-
-export default Page;

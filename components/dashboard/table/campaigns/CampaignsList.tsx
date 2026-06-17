@@ -1,0 +1,44 @@
+import { Megaphone, CalendarClock, CheckCircle2 } from "lucide-react";
+import { campaignRows } from "@/components/dashboard/data/campaigns";
+import { CampaignStatus } from "@/components/dashboard/types/dashboard_types";
+
+const STATUS_CONFIG: Record<CampaignStatus, { icon: typeof Megaphone; color: string }> = {
+  Active: { icon: Megaphone, color: "text-emerald-400" },
+  Scheduled: { icon: CalendarClock, color: "text-blue-400" },
+  Ended: { icon: CheckCircle2, color: "text-neutral-400" },
+};
+
+export default function CampaignsList() {
+  return (
+    <div className="max-h-72 overflow-y-auto scrollbar-hide">
+      {campaignRows.map((campaign) => {
+        const { icon: Icon, color } = STATUS_CONFIG[campaign.status];
+        return (
+          <div
+            key={campaign.id}
+            className="flex items-center justify-between gap-4 border-b border-neutral-800 dark:border-neutral-600 px-4 py-3 last:border-b-0"
+          >
+            <div className="min-w-0">
+              <p className="truncate text-sm font-medium text-neutral-600 dark:text-neutral-200">
+                {campaign.name}
+              </p>
+              <p className="text-xs text-neutral-500 dark:text-neutral-400">
+                {campaign.channel} ·{" "}
+                {new Date(campaign.startDate).toLocaleDateString("en-PH", { month: "short", day: "numeric" })}
+              </p>
+            </div>
+            <div className="flex shrink-0 items-center gap-3">
+              <span className="text-sm text-neutral-600 dark:text-neutral-300">
+                ₱{campaign.budget.toLocaleString("en-PH")}
+              </span>
+              <span className="inline-flex items-center gap-1 text-xs text-neutral-600 dark:text-neutral-200">
+                <Icon className={`h-3.5 w-3.5 ${color}`} />
+                {campaign.status}
+              </span>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}

@@ -752,3 +752,11 @@ span.flatpickr-weekday,
 .search-input::placeholder {
   color: #667085;
 }
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

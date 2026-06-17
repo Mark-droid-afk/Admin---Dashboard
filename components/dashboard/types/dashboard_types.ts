@@ -5,7 +5,6 @@ export interface StatCard {
   trend: "up" | "down";
   trendValue: string;
   title: string;
-  subtitle: string;
 }
 
 export interface ProductionPoint {
@@ -14,16 +13,36 @@ export interface ProductionPoint {
   target: number;
 }
 
-export type OrderStatus = "Completed" | "Processing" | "Pending";
+export type CustomerStatus = "Active" | "New" | "Inactive";
 
-export interface OrderRow {
+export interface CustomerRow {
   id: string;
-  orderId: string;
   customer: string;
-  product: string;
-  quantity: number;
-  amount: number;
-  status: OrderStatus;
+  email: string;
+  phone: string;
+  joinedDate: string;
+  status: CustomerStatus;
 }
 
-export type DateRange = "3m" | "30d" | "7d";
+export type CampaignStatus = "Active" | "Scheduled" | "Ended";
+
+export interface CampaignRow {
+  id: string;
+  name: string;
+  channel: string;
+  status: CampaignStatus;
+  budget: number;
+  startDate: string;
+}
+
+export type TicketPriority = "Low" | "Medium" | "High";
+export type TicketStatus = "Open" | "In Progress" | "Resolved";
+
+export interface TicketRow {
+  id: string;
+  subject: string;
+  customer: string;
+  priority: TicketPriority;
+  status: TicketStatus;
+  createdAt: string;
+}
